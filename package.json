@@ -1,9 +1,9 @@
 {
-  "name": "electron_tutorial",
-  "productName": "electron_tutorial",
+  "name": "Timer",
+  "productName": "Desktop Timer App",
   "version": "1.0.0",
-  "description": "My Electron application description",
-  "main": "src/index.js",
+  "description": "Simple desktop timer app.",
+  "main": "src/main/index.js",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",

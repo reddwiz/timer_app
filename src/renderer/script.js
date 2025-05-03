@@ -1,3 +1,12 @@
+/* 
+ *
+ *    Main App Script File
+ *
+ *    - sorry if the snake_case makes you lose your mind, i was doing
+ *      a lot of python before this
+ *
+ * */
+
 let time_seconds = 0; // default is 0 seconds
 let saved_time = 0; // storing their time as a var to loop with
 let interval_id = null;
