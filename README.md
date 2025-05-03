@@ -1,1 +1,3 @@
-## Simple Timer App
+# Simple Timer App
+
+This is a simple app that lets you create a configurable desktop timer to suit your needs.
