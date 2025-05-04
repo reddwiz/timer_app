@@ -207,6 +207,13 @@ function hide_settings(hide: boolean): void {
     }
 }
 
+// TODO:
+const body: HTMLDivElement = document.getElementById('body') as HTMLDivElement;
+// enables dark mode on button press
+function dark_mode(): void {
+    body.classList.toggle('dark');
+}
+
 // variables and event listeners for the setting timer buttons
 const increase_hour_btn: HTMLButtonElement = document.getElementById('increase_hour') as HTMLButtonElement;
 const decrease_hour_btn: HTMLButtonElement = document.getElementById('decrease_hour') as HTMLButtonElement;
@@ -317,9 +324,9 @@ const play_button: HTMLButtonElement = document.getElementById('play') as HTMLBu
 const loop_button: HTMLButtonElement = document.getElementById('loop') as HTMLButtonElement;
 const settings_button: HTMLButtonElement = document.getElementById('settings') as HTMLButtonElement;
 const close_settings_btn: HTMLButtonElement = document.getElementById('close_settings') as HTMLButtonElement;
-// const miniplayer_btn: HTMLButtonElement = document.getElementById('miniplayer') as HTMLButtonElement;
+const miniplayer_btn: HTMLButtonElement = document.getElementById('miniplayer') as HTMLButtonElement;
 play_button.addEventListener('click', play);
 loop_button.addEventListener('click', set_loop);
 settings_button.addEventListener('click', open_settings);
 close_settings_btn.addEventListener('click', close_settings);
-// miniplayer_btn.addEventListener('click', openMiniplayer);
+miniplayer_btn.addEventListener('click', dark_mode);

@@ -148,6 +148,10 @@ function hide_settings(hide) {
         settings_button.classList.remove('hidden');
     }
 }
+const body = document.getElementById('body');
+function dark_mode() {
+    body.classList.toggle('dark');
+}
 const increase_hour_btn = document.getElementById('increase_hour');
 const decrease_hour_btn = document.getElementById('decrease_hour');
 const increase_minute_btn = document.getElementById('increase_minute');
@@ -251,7 +255,9 @@ const play_button = document.getElementById('play');
 const loop_button = document.getElementById('loop');
 const settings_button = document.getElementById('settings');
 const close_settings_btn = document.getElementById('close_settings');
+const miniplayer_btn = document.getElementById('miniplayer');
 play_button.addEventListener('click', play);
 loop_button.addEventListener('click', set_loop);
 settings_button.addEventListener('click', open_settings);
 close_settings_btn.addEventListener('click', close_settings);
+miniplayer_btn.addEventListener('click', dark_mode);
