@@ -3,21 +3,21 @@
  *    Main App Script File
  *
  *    - sorry if the snake_case makes you lose your mind, i was doing
- *      a lot of python before this
+ *      a lot of python before this (not sure if it matters too much)
  *
  * */
 
-let time_seconds = 0; // default is 0 seconds
-let saved_time = 0; // storing their time as a var to loop with
-let interval_id = null;
-let progress_interval_id = null;
-let active = false;
-let loop = false; // dont loop by default
+let time_seconds: number = 0; // default is 0 seconds
+let saved_time: number = 0; // storing their time as a var to loop with
+let interval_id: NodeJS.Timeout;
+let progress_interval_id: NodeJS.Timeout;
+let active: boolean = false;
+let loop: boolean = false; // dont loop by default
 // im pretty sure loading the audio earlier helps with delay
-const audio = new Audio("C:\\Users\\andre\\Downloads\\Tuturu sound effect.mp4");
+const audio: any = new Audio("C:\\Users\\andre\\Downloads\\Tuturu sound effect.mp4");
 
 // countdown logic
-const countdown = () => {
+const countdown = (): void => {
     // timer ends then executes
     if (time_seconds < 1) {
         countdown_over();
@@ -26,28 +26,28 @@ const countdown = () => {
 
     // regular interval logic
     time_seconds--;
-    set_html_time(time_seconds);
+    set_html_time();
     progress_updater();
     console.log(`time left: ${time_seconds} seconds`);
     console.log(`saved time: ${saved_time}`);
 };
 
 // when countdown finishes, executes this logic
-const countdown_over = () => {
+const countdown_over = (): void => {
     console.log('countdown is over');
     end_timer();
     play_sound();
 };
 
-const progress = document.getElementById('progress');
+const progress: HTMLDivElement = document.getElementById('progress') as HTMLDivElement;
 // updates the progress bar
-function progress_updater() {
+function progress_updater(): void {
     progress.style.width = `${calculate_progress()}%`;
     console.log('updating width to ' + calculate_progress());
 }
 
 // decide start or stop logic
-function play() {
+function play(): void {
     // play the timer
     if (!active) {
         start_timer();
@@ -57,13 +57,13 @@ function play() {
 }
 
 // changes the loop to reverse
-function set_loop() {
+function set_loop(): void {
     loop = !loop;
     change_loop_text();
 }
 
 // changes loop text to on or off
-function change_loop_text() {
+function change_loop_text(): void {
     if (loop) {
         loop_button.textContent = "loop: on";
     } else {
@@ -72,7 +72,7 @@ function change_loop_text() {
 }
 
 // start timer logic
-function start_timer() {
+function start_timer(): void {
     console.log('timer started');
     // ensures that new plays will contain the proper time
     if (time_seconds === 0) time_seconds = saved_time;
@@ -82,7 +82,7 @@ function start_timer() {
 }
 
 // pauses the countdown
-function pause_timer() {
+function pause_timer(): void {
     console.log('timer paused');
     clear_interval();
     set_active(false);
@@ -90,7 +90,7 @@ function pause_timer() {
 }
 
 // ends the timer if loop is not true
-function end_timer() {
+function end_timer(): void {
     if (!loop) {
         console.log('timer over');
         clear_interval();
@@ -104,29 +104,29 @@ function end_timer() {
 
 // sets timer activity
 // (basically tells us if the timer is ticking down)
-function set_active(boolean) {
+function set_active(boolean: boolean): void {
     active = boolean;
     hide_settings(boolean); // hides settings button
 }
 
 // starts the countdown and sets the interval id
 // we need the interval id so we can stop the interval later
-function start_countdown() {
+function start_countdown(): void {
     interval_id = setInterval(countdown, 1000);
 }
 
-function clear_interval() {
+function clear_interval(): void {
     clearInterval(interval_id);
 }
 
 // sets the html time to the time, but formatted as per convert_time()
-const time_display = document.getElementById('time');
-function set_html_time() {
+const time_display: HTMLDivElement = document.getElementById('time') as HTMLDivElement;
+function set_html_time(): void {
     time_display.textContent = convert_time(time_seconds);
 }
 
 // converts the seconds to a formatted string
-function convert_time(remaining_time) {
+function convert_time(remaining_time: number): string {
     // saving an instance of time locally
     remaining_time = time_seconds;
 
@@ -148,14 +148,14 @@ function convert_time(remaining_time) {
     return `${hour_text}:${minute_text}:${second_text}`;
 }
 
-const hour_field = document.getElementById('hour_field');
-const minute_field = document.getElementById('minute_field');
-const second_field = document.getElementById('second_field');
+const hour_field: HTMLDivElement = document.getElementById('hour_field') as HTMLDivElement;
+const minute_field: HTMLDivElement = document.getElementById('minute_field') as HTMLDivElement;
+const second_field: HTMLDivElement = document.getElementById('second_field') as HTMLDivElement;
 // set the time based on fields
-function initialize_timer() {
-    const hours = Number(hour_field.textContent);
-    const minutes = Number(minute_field.textContent);
-    const seconds = Number(second_field.textContent);
+function initialize_timer(): void {
+    const hours: number = Number(hour_field.textContent);
+    const minutes: number = Number(minute_field.textContent);
+    const seconds: number = Number(second_field.textContent);
     console.log('setting timer');
     set_time(hours * 3600 + minutes * 60 + seconds);
     set_html_time();
@@ -163,19 +163,19 @@ function initialize_timer() {
 }
 
 // calculates the progress in reverse percentage (goes down from 100%)
-function calculate_progress() {
+function calculate_progress(): number {
     return 100 * (time_seconds / saved_time);
 }
 
 // set the time
-function set_time(time_param) {
+function set_time(time_param: number): void {
     time_seconds = time_param;
     saved_time = time_param;
     console.log(`time was set to: ${time_param}`);
     console.log(`saved_time was set to ${saved_time}`);
 }
 
-function set_text_play() {
+function set_text_play(): void {
     // sets the pause btn to play
     play_button.textContent = "play";
 }
@@ -185,7 +185,7 @@ function set_text_pause() {
     play_button.textContent = "pause";
 }
 
-const settings_div = document.getElementById('settings_div');
+const settings_div: HTMLDivElement = document.getElementById('settings_div') as HTMLDivElement;
 // opens the settings div
 function open_settings() {
     settings_div.classList.remove('hidden');
@@ -198,9 +198,9 @@ function close_settings() {
 }
 
 // hides the settings button when active
-function hide_settings(boolean) {
+function hide_settings(hide: boolean): void {
     // show is a boolean value
-    if (boolean) {
+    if (hide) {
         settings_button.classList.add('hidden');
     } else {
         settings_button.classList.remove('hidden');
@@ -208,12 +208,12 @@ function hide_settings(boolean) {
 }
 
 // variables and event listeners for the setting timer buttons
-const increase_hour_btn = document.getElementById('increase_hour');
-const decrease_hour_btn = document.getElementById('decrease_hour');
-const increase_minute_btn = document.getElementById('increase_minute');
-const decrease_minute_btn = document.getElementById('decrease_minute');
-const increase_second_btn = document.getElementById('increase_second');
-const decrease_second_btn = document.getElementById('decrease_second');
+const increase_hour_btn: HTMLButtonElement = document.getElementById('increase_hour') as HTMLButtonElement;
+const decrease_hour_btn: HTMLButtonElement = document.getElementById('decrease_hour') as HTMLButtonElement;
+const increase_minute_btn: HTMLButtonElement = document.getElementById('increase_minute') as HTMLButtonElement;
+const decrease_minute_btn: HTMLButtonElement = document.getElementById('decrease_minute') as HTMLButtonElement;
+const increase_second_btn: HTMLButtonElement = document.getElementById('increase_second') as HTMLButtonElement;
+const decrease_second_btn: HTMLButtonElement = document.getElementById('decrease_second') as HTMLButtonElement;
 increase_hour_btn.addEventListener('click', increase_hour_template);
 decrease_hour_btn.addEventListener('click', decrease_hour_template);
 increase_minute_btn.addEventListener('click', increase_minute_template);
@@ -228,7 +228,7 @@ function increase_hour_template() {
         if (hour_time < 9) {
             hour_field.textContent = `0${hour_time + 1}`;
         } else {
-            hour_field.textContent = hour_time + 1;
+            hour_field.textContent = `${hour_time + 1}`;
         }
     } else {
         hour_field.textContent = "00";
@@ -244,7 +244,7 @@ function decrease_hour_template() {
         if (hour_time < 11) {
             hour_field.textContent = `0${hour_time - 1}`;
         } else {
-            hour_field.textContent = hour_time - 1;
+            hour_field.textContent = `${hour_time - 1}`;
         }
     } else {
         hour_field.textContent = "99";
@@ -258,7 +258,7 @@ function increase_minute_template() {
         if (minute_time < 9) {
             minute_field.textContent = `0${minute_time + 1}`;
         } else {
-            minute_field.textContent = minute_time + 1;
+            minute_field.textContent = `${minute_time + 1}`;
         }
     } else {
         minute_field.textContent = "00";
@@ -272,7 +272,7 @@ function decrease_minute_template() {
         if (minute_time < 11) {
             minute_field.textContent = `0${minute_time - 1}`;
         } else {
-            minute_field.textContent = minute_time - 1;
+            minute_field.textContent = `${minute_time - 1}`;
         }
     } else {
         minute_field.textContent = "59";
@@ -286,7 +286,7 @@ function increase_second_template() {
         if (second_time < 9) {
             second_field.textContent = `0${second_time + 1}`;
         } else {
-            second_field.textContent = second_time + 1;
+            second_field.textContent = `${second_time + 1}`;
         }
     } else {
         second_field.textContent = "00";
@@ -300,7 +300,7 @@ function decrease_second_template() {
         if (second_time < 11) {
             second_field.textContent = `0${second_time - 1}`;
         } else {
-            second_field.textContent = second_time - 1;
+            second_field.textContent = `${second_time - 1}`;
         }
     } else {
         second_field.textContent = "59";
@@ -313,11 +313,13 @@ function play_sound() {
 }
 
 // misc vars and event listeners
-const play_button = document.getElementById('play');
-const loop_button = document.getElementById('loop');
-const settings_button = document.getElementById('settings');
-const close_settings_btn = document.getElementById('close_settings');
+const play_button: HTMLButtonElement = document.getElementById('play') as HTMLButtonElement;
+const loop_button: HTMLButtonElement = document.getElementById('loop') as HTMLButtonElement;
+const settings_button: HTMLButtonElement = document.getElementById('settings') as HTMLButtonElement;
+const close_settings_btn: HTMLButtonElement = document.getElementById('close_settings') as HTMLButtonElement;
+// const miniplayer_btn: HTMLButtonElement = document.getElementById('miniplayer') as HTMLButtonElement;
 play_button.addEventListener('click', play);
 loop_button.addEventListener('click', set_loop);
 settings_button.addEventListener('click', open_settings);
 close_settings_btn.addEventListener('click', close_settings);
+// miniplayer_btn.addEventListener('click', openMiniplayer);
