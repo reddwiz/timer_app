@@ -186,9 +186,11 @@ function set_text_pause() {
 }
 
 const settings_div: HTMLDivElement = document.getElementById('settings_div') as HTMLDivElement;
-// opens the settings div
+// opens the settings html
+// TODO:
 function open_settings() {
-    settings_div.classList.remove('hidden');
+    // settings_div.classList.remove('hidden');
+    window.location.href = "../html/settings.html";
 }
 
 // closes the settings div
@@ -229,8 +231,8 @@ increase_second_btn.addEventListener('click', increase_second_template);
 decrease_second_btn.addEventListener('click', decrease_second_template);
 
 // increases the number of hours on the setting template
-function increase_hour_template() {
-    const hour_time = Number(hour_field.textContent);
+function increase_hour_template(): void {
+    const hour_time: number = Number(hour_field.textContent);
     if (hour_time < 99) {
         if (hour_time < 9) {
             hour_field.textContent = `0${hour_time + 1}`;
@@ -243,9 +245,9 @@ function increase_hour_template() {
 }
 
 // decreases the number of hours on the setting template
-function decrease_hour_template() {
+function decrease_hour_template(): void {
     // decrease the hour setting
-    const hour_time = Number(hour_field.textContent);
+    const hour_time: number = Number(hour_field.textContent);
     if (hour_time != 0) {
         // set the time
         if (hour_time < 11) {
@@ -259,8 +261,8 @@ function decrease_hour_template() {
 }
 
 // increases the number of minute on the settings template
-function increase_minute_template() {
-    const minute_time = Number(minute_field.textContent);
+function increase_minute_template(): void {
+    const minute_time: number = Number(minute_field.textContent);
     if (minute_time < 59) {
         if (minute_time < 9) {
             minute_field.textContent = `0${minute_time + 1}`;
@@ -273,8 +275,8 @@ function increase_minute_template() {
 }
 
 // decreases the number of minutes on the settings template
-function decrease_minute_template() {
-    const minute_time = Number(minute_field.textContent);
+function decrease_minute_template(): void {
+    const minute_time: number = Number(minute_field.textContent);
     if (minute_time != 0) {
         if (minute_time < 11) {
             minute_field.textContent = `0${minute_time - 1}`;
@@ -287,8 +289,8 @@ function decrease_minute_template() {
 }
 
 // increases the number of seconds on the settings template
-function increase_second_template() {
-    const second_time = Number(second_field.textContent);
+function increase_second_template(): void {
+    const second_time: number = Number(second_field.textContent);
     if (second_time < 59) {
         if (second_time < 9) {
             second_field.textContent = `0${second_time + 1}`;
@@ -301,8 +303,8 @@ function increase_second_template() {
 }
 
 // decreases the number of seconds on the settings template
-function decrease_second_template() {
-    const second_time = Number(second_field.textContent);
+function decrease_second_template(): void {
+    const second_time: number = Number(second_field.textContent);
     if (second_time != 0) {
         if (second_time < 11) {
             second_field.textContent = `0${second_time - 1}`;
@@ -315,7 +317,7 @@ function decrease_second_template() {
 }
 
 // plays some predetermined sound
-function play_sound() {
+function play_sound(): void {
     audio.play();
 }
 

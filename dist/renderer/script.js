@@ -134,7 +134,7 @@ function set_text_pause() {
 }
 const settings_div = document.getElementById('settings_div');
 function open_settings() {
-    settings_div.classList.remove('hidden');
+    window.location.href = "../html/settings.html";
 }
 function close_settings() {
     settings_div.classList.add('hidden');
