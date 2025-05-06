@@ -2,8 +2,6 @@
  *
  *    Main App Script File
  *
- *    - sorry if the snake_case makes you lose your mind, i was doing
- *      a lot of python before this (not sure if it matters too much)
  *
  * */
 
