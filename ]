@@ -1,15 +1,12 @@
 /* 
  *
- *  main script
+ *    Main App Script File
  *
  */
 
 loop = window.localStorage.getItem("loop") === "true";
 time_seconds = parseInt(window.localStorage.getItem("time") || "0");
 saved_time = time_seconds;
-
-const time_display: HTMLDivElement = document.getElementById('time') as HTMLDivElement;
-set_html_time();
 
 console.log(loop);
 console.log(time_seconds);
@@ -109,6 +106,7 @@ function clear_interval(): void {
 }
 
 // sets the html time to the time, but formatted as per convert_time()
+const time_display: HTMLDivElement = document.getElementById('time') as HTMLDivElement;
 function set_html_time(): void {
     time_display.textContent = convert_time(time_seconds);
 }
@@ -141,6 +139,13 @@ function calculate_progress(): number {
     return 100 * (time_seconds / saved_time);
 }
 
+// set the time
+function set_time(time_param: number): void {
+    time_seconds = time_param;
+    saved_time = time_param;
+    console.log(`time was set to: ${time_param}`);
+    console.log(`saved_time was set to ${saved_time}`);
+}
 
 function set_text_play(): void {
     // sets the pause btn to play

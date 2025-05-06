@@ -1,4 +1,15 @@
 "use strict";
+loop = window.localStorage.getItem("loop") === "true";
+time_seconds = parseInt(window.localStorage.getItem("time") || "0");
+saved_time = time_seconds;
+const time_display = document.getElementById('time');
+set_html_time();
+console.log(loop);
+console.log(time_seconds);
+console.log(saved_time);
+let active = false;
+let interval_id;
+let progress_interval_id;
 const countdown = () => {
     if (time_seconds < 1) {
         countdown_over();
@@ -26,18 +37,6 @@ function play() {
     }
     else {
         pause_timer();
-    }
-}
-function set_loop() {
-    loop = !loop;
-    change_loop_text();
-}
-function change_loop_text() {
-    if (loop) {
-        loop_button.textContent = "loop: on";
-    }
-    else {
-        loop_button.textContent = "loop: off";
     }
 }
 function start_timer() {
@@ -76,7 +75,6 @@ function start_countdown() {
 function clear_interval() {
     clearInterval(interval_id);
 }
-const time_display = document.getElementById('time');
 function set_html_time() {
     time_display.textContent = convert_time(time_seconds);
 }
@@ -98,26 +96,8 @@ function convert_time(remaining_time) {
         second_text = 0 + `${second_text}`;
     return `${hour_text}:${minute_text}:${second_text}`;
 }
-const hour_field = document.getElementById('hour_field');
-const minute_field = document.getElementById('minute_field');
-const second_field = document.getElementById('second_field');
-function initialize_timer() {
-    const hours = Number(hour_field.textContent);
-    const minutes = Number(minute_field.textContent);
-    const seconds = Number(second_field.textContent);
-    console.log('setting timer');
-    set_time(hours * 3600 + minutes * 60 + seconds);
-    set_html_time();
-    progress_updater();
-}
 function calculate_progress() {
     return 100 * (time_seconds / saved_time);
-}
-function set_time(time_param) {
-    time_seconds = time_param;
-    saved_time = time_param;
-    console.log(`time was set to: ${time_param}`);
-    console.log(`saved_time was set to ${saved_time}`);
 }
 function set_text_play() {
     play_button.textContent = "play";
@@ -125,10 +105,8 @@ function set_text_play() {
 function set_text_pause() {
     play_button.textContent = "pause";
 }
-const settings_div = document.getElementById('settings_div');
 function open_settings() {
     window.location.href = "../html/settings.html";
-    console.log('opening settings');
 }
 function hide_settings(hide) {
     if (hide) {

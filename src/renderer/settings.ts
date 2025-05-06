@@ -1,10 +1,8 @@
 /* 
  *
- *      settings script
+ *  settings script
  *
  */
-
-console.log(time_seconds);
 
 const close_settings_btn: HTMLButtonElement = document.getElementById('close_settings') as HTMLButtonElement;
 close_settings_btn.addEventListener('click', close_settings);
@@ -26,11 +24,38 @@ decrease_minute_btn.addEventListener('click', decrease_minute_template);
 increase_second_btn.addEventListener('click', increase_second_template);
 decrease_second_btn.addEventListener('click', decrease_second_template);
 
+// set the time
+function set_time(time_param: number): void {
+    time_seconds = time_param;
+    saved_time = time_param;
+    console.log(`time was set to: ${time_param}`);
+    console.log(`saved_time was set to ${saved_time}`);
+}
+
+const hour_field: HTMLDivElement = document.getElementById('hour_field') as HTMLDivElement;
+const minute_field: HTMLDivElement = document.getElementById('minute_field') as HTMLDivElement;
+const second_field: HTMLDivElement = document.getElementById('second_field') as HTMLDivElement;
+// set the time based on fields
+function initialize_timer(): void {
+    const hours: number = Number(hour_field.textContent);
+    const minutes: number = Number(minute_field.textContent);
+    const seconds: number = Number(second_field.textContent);
+    console.log('setting timer');
+    set_time(hours * 3600 + minutes * 60 + seconds);
+}
+
 // opens main html
 function close_settings(): void {
     // settings_div.classList.add('hidden');
-    // initialize_timer();
+    initialize_timer();
+    setLocalStorageValues();
+    console.log(localStorage.getItem("time"));
     window.location.href = "../html/index.html";
+}
+
+function setLocalStorageValues(): void {
+    window.localStorage.setItem("time", `${time_seconds}`);
+    window.localStorage.setItem("loop", `${loop}`);
 }
 
 // increases the number of hours on the setting template
@@ -116,5 +141,20 @@ function decrease_second_template(): void {
         }
     } else {
         second_field.textContent = "59";
+    }
+}
+
+// sets the loop
+function set_loop(): void {
+    loop = !loop;
+    change_loop_text();
+}
+
+// changes loop text to on or off
+function change_loop_text(): void {
+    if (loop) {
+        loop_button.textContent = "loop: on";
+    } else {
+        loop_button.textContent = "loop: off";
     }
 }

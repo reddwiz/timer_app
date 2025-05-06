@@ -1,5 +1,4 @@
 "use strict";
-console.log(time_seconds);
 const close_settings_btn = document.getElementById('close_settings');
 close_settings_btn.addEventListener('click', close_settings);
 const loop_button = document.getElementById('loop');
@@ -16,8 +15,31 @@ increase_minute_btn.addEventListener('click', increase_minute_template);
 decrease_minute_btn.addEventListener('click', decrease_minute_template);
 increase_second_btn.addEventListener('click', increase_second_template);
 decrease_second_btn.addEventListener('click', decrease_second_template);
+function set_time(time_param) {
+    time_seconds = time_param;
+    saved_time = time_param;
+    console.log(`time was set to: ${time_param}`);
+    console.log(`saved_time was set to ${saved_time}`);
+}
+const hour_field = document.getElementById('hour_field');
+const minute_field = document.getElementById('minute_field');
+const second_field = document.getElementById('second_field');
+function initialize_timer() {
+    const hours = Number(hour_field.textContent);
+    const minutes = Number(minute_field.textContent);
+    const seconds = Number(second_field.textContent);
+    console.log('setting timer');
+    set_time(hours * 3600 + minutes * 60 + seconds);
+}
 function close_settings() {
+    initialize_timer();
+    setLocalStorageValues();
+    console.log(localStorage.getItem("time"));
     window.location.href = "../html/index.html";
+}
+function setLocalStorageValues() {
+    window.localStorage.setItem("time", `${time_seconds}`);
+    window.localStorage.setItem("loop", `${loop}`);
 }
 function increase_hour_template() {
     const hour_time = Number(hour_field.textContent);
@@ -101,5 +123,17 @@ function decrease_second_template() {
     }
     else {
         second_field.textContent = "59";
+    }
+}
+function set_loop() {
+    loop = !loop;
+    change_loop_text();
+}
+function change_loop_text() {
+    if (loop) {
+        loop_button.textContent = "loop: on";
+    }
+    else {
+        loop_button.textContent = "loop: off";
     }
 }
