@@ -137,8 +137,7 @@ function open_settings() {
     window.location.href = "../html/settings.html";
 }
 function close_settings() {
-    settings_div.classList.add('hidden');
-    initialize_timer();
+    window.location.href = "../html/index.html";
 }
 function hide_settings(hide) {
     if (hide) {

@@ -180,7 +180,7 @@ function set_text_play(): void {
     play_button.textContent = "play";
 }
 
-function set_text_pause() {
+function set_text_pause(): void {
     // sets the play btn to pause
     play_button.textContent = "pause";
 }
@@ -188,15 +188,16 @@ function set_text_pause() {
 const settings_div: HTMLDivElement = document.getElementById('settings_div') as HTMLDivElement;
 // opens the settings html
 // TODO:
-function open_settings() {
+function open_settings(): void {
     // settings_div.classList.remove('hidden');
     window.location.href = "../html/settings.html";
 }
 
 // closes the settings div
-function close_settings() {
-    settings_div.classList.add('hidden');
-    initialize_timer();
+function close_settings(): void {
+    // settings_div.classList.add('hidden');
+    // initialize_timer();
+    window.location.href = "../html/index.html";
 }
 
 // hides the settings button when active
