@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Desktop Timer</title>
-    <link rel="stylesheet" href="../styles/index.css" />
-    <script defer src="../../dist/renderer/script.js"></script>
+    <link rel="stylesheet" href="../styles/index.css">
 </head>
 
 <body id="body">
@@ -20,32 +20,6 @@
             </div>
         </div>
     </nav>
-    <div id="settings_div" class="hidden">
-        <div id="settings_container">
-            <button title="save settings" id="close_settings">save</button>
-            <button title="set loop" id="loop">loop: off</button>
-            <div id="set_time">
-                <div id="hours">
-                    <button id="increase_hour">▲</button>
-                    <div id="hour_field">00</div>
-                    <button id="decrease_hour">▼</button>
-                </div>
-                <div class="separator">:</div>
-                <div id="minutes">
-                    <button id="increase_minute">▲</button>
-                    <div id="minute_field">00</div>
-                    <button id="decrease_minute">▼</button>
-                </div>
-                <div class="separator">:</div>
-                <div id="seconds">
-                    <button id="increase_second">▲</button>
-                    <div id="second_field">00</div>
-                    <button id="decrease_second">▼</button>
-                </div>
-            </div>
-            Set Timer
-        </div>
-    </div>
     <div id="timer_div">
         <p id="time">00:00:00</p>
         <div id="progress_container">
@@ -59,6 +33,8 @@
     <button id="miniplayer">
         <img title="open in miniplayer" id="miniplayer-img" src="../assets/images/miniplayer.svg">
     </button>
+    <script src="../../dist/renderer/global.js"></script>
+    <script src="../../dist/renderer/script.js"></script>
 </body>
 
 </html>

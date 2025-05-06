@@ -11,19 +11,51 @@
 <body>
     <h1>Timer Settings</h1>
     <div id="options-container">
-        <div id="timer-type">
+        <div id="timer_type">
             <p>Timer Type</p>
+            <option>
+                <select>Countdown</select>
+                <select>Stopwatch</select>
+            </option>
         </div>
-        <div id="set-loop">
+        <div id="set_loop">
             <p>Loop</p>
+            <button>OFF</button>
         </div>
-        <div id="set-time">
+        <div id="set_time_div">
             <p>Set Time</p>
+            <div id="settings_container">
+                <button title="save settings" id="close_settings">save</button>
+                <button title="set loop" id="loop">loop: off</button>
+                <div id="set_time">
+                    <div id="hours">
+                        <button id="increase_hour">▲</button>
+                        <div id="hour_field">00</div>
+                        <button id="decrease_hour">▼</button>
+                    </div>
+                    <div class="separator">:</div>
+                    <div id="minutes">
+                        <button id="increase_minute">▲</button>
+                        <div id="minute_field">00</div>
+                        <button id="decrease_minute">▼</button>
+                    </div>
+                    <div class="separator">:</div>
+                    <div id="seconds">
+                        <button id="increase_second">▲</button>
+                        <div id="second_field">00</div>
+                        <button id="decrease_second">▼</button>
+                    </div>
+                </div>
+                Set Timer
+            </div>
         </div>
         <div>
             <p>some_setting</p>
         </div>
     </div>
+    <!-- <script src="../../dist/renderer/script.js"></script> -->
+    <script src="../../dist/renderer/global.js"></script>
+    <script src="../../dist/renderer/settings.js"></script>
 </body>
 
 </html>
