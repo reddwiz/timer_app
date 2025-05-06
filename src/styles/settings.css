@@ -7,10 +7,15 @@ p {
 }
 
 body {
-    padding-left: 10px;
+    padding: 10px;
+}
+
+h1 {
+    margin-bottom: 15px;
 }
 
 #options-container {
     display: flex;
     flex-direction: column;
+    gap: 10px;
 }
