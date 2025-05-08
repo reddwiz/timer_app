@@ -5,10 +5,12 @@
  */
 
 const close_settings_btn: HTMLButtonElement = document.getElementById('close_settings') as HTMLButtonElement;
-close_settings_btn.addEventListener('click', close_settings);
+// TODO: adding back later
+// close_settings_btn.addEventListener('click', close_settings);
 
 const loop_button: HTMLButtonElement = document.getElementById('loop') as HTMLButtonElement;
-loop_button.addEventListener('click', set_loop);
+// TODO: need to add this back, temp disabling it
+// loop_button.addEventListener('click', set_loop);
 
 // variables and event listeners for the setting timer buttons
 const increase_hour_btn: HTMLButtonElement = document.getElementById('increase_hour') as HTMLButtonElement;
@@ -150,6 +152,8 @@ function set_loop(): void {
     change_loop_text();
 }
 
+// TODO:
+// need to repurpose this after settings and css changes
 // changes loop text to on or off
 function change_loop_text(): void {
     if (loop) {

@@ -1,8 +1,6 @@
 "use strict";
 const close_settings_btn = document.getElementById('close_settings');
-close_settings_btn.addEventListener('click', close_settings);
 const loop_button = document.getElementById('loop');
-loop_button.addEventListener('click', set_loop);
 const increase_hour_btn = document.getElementById('increase_hour');
 const decrease_hour_btn = document.getElementById('decrease_hour');
 const increase_minute_btn = document.getElementById('increase_minute');

@@ -20,13 +20,13 @@
         </div>
         <div id="set_loop">
             <p>Loop</p>
-            <button>OFF</button>
+            <select>
+                <option>On</option>
+                <option>Off</option>
+            </select>
         </div>
-        <div id="set_time_div">
-            <p>Set Time</p>
+        <div>
             <div id="settings_container">
-                <button title="save settings" id="close_settings">save</button>
-                <button title="set loop" id="loop">loop: off</button>
                 <div id="set_time">
                     <div id="hours">
                         <button id="increase_hour">▲</button>
@@ -46,16 +46,12 @@
                         <button id="decrease_second">▼</button>
                     </div>
                 </div>
-                Set Timer
+                <button id="set_time_btn">Set Time</button>
             </div>
         </div>
-        <div>
-            <p>some_setting</p>
-        </div>
+        <script src="../../dist/renderer/global.js"></script>
+        <script src="../../dist/renderer/settings.js"></script>
     </div>
-    <!-- <script src="../../dist/renderer/script.js"></script> -->
-    <script src="../../dist/renderer/global.js"></script>
-    <script src="../../dist/renderer/settings.js"></script>
 </body>
 
 </html>
