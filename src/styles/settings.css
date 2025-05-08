@@ -38,7 +38,7 @@ h1 {
 #set_loop {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 #settings_div {
