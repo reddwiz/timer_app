@@ -123,15 +123,3 @@ const miniplayer_btn = document.getElementById('miniplayer');
 play_button.addEventListener('click', play);
 settings_button.addEventListener('click', open_settings);
 miniplayer_btn.addEventListener('click', dark_mode);
-const close_app_btn = document.getElementById('close_app_btn');
-const minimize_app_btn = document.getElementById('minimize_app_btn');
-const minimize_to_system_btn = document.getElementById('minimize_to_system_btn');
-close_app_btn.addEventListener('click', () => {
-    window.backend.closeApp();
-});
-minimize_app_btn.addEventListener('click', () => {
-    window.backend.minimizeApp();
-});
-minimize_to_system_btn.addEventListener('click', () => {
-    window.backend.minimizeToSystemTray();
-});

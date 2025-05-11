@@ -16,6 +16,10 @@ nav {
 #draggable_area {
     -webkit-app-region: drag;
     height: 20px;
+    position: absolute;
+    top: 0;
+    left: calc(50vw - 16px);
+    padding: 4px;
 }
 
 nav img {
@@ -37,6 +41,7 @@ img#logo {
 #toolbar_buttons {
     margin-right: 5px;
     margin-top: 5px;
+    user-select: none;
 }
 
 #toolbar_buttons button:hover {

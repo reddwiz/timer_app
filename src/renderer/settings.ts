@@ -6,7 +6,7 @@
 
 const close_settings_btn: HTMLButtonElement = document.getElementById('close_settings') as HTMLButtonElement;
 // TODO: adding back later
-// close_settings_btn.addEventListener('click', close_settings);
+close_settings_btn.addEventListener('click', close_settings);
 
 const loop_button: HTMLButtonElement = document.getElementById('loop') as HTMLButtonElement;
 // TODO: need to add this back, temp disabling it
@@ -48,10 +48,8 @@ function initialize_timer(): void {
 
 // opens main html
 function close_settings(): void {
-    // settings_div.classList.add('hidden');
     initialize_timer();
     setLocalStorageValues();
-    console.log(localStorage.getItem("time"));
     window.location.href = "../html/index.html";
 }
 

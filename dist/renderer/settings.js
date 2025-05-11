@@ -1,5 +1,6 @@
 "use strict";
 const close_settings_btn = document.getElementById('close_settings');
+close_settings_btn.addEventListener('click', close_settings);
 const loop_button = document.getElementById('loop');
 const increase_hour_btn = document.getElementById('increase_hour');
 const decrease_hour_btn = document.getElementById('decrease_hour');
@@ -32,7 +33,6 @@ function initialize_timer() {
 function close_settings() {
     initialize_timer();
     setLocalStorageValues();
-    console.log(localStorage.getItem("time"));
     window.location.href = "../html/index.html";
 }
 function setLocalStorageValues() {

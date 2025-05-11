@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9">
     <title>Desktop Timer</title>
     <link href="../styles/settings.css" rel="stylesheet">
     <link href="../styles/nav.css" rel="stylesheet">
@@ -13,58 +13,47 @@
     <nav id="toolbar">
         <div id="toolbar_container">
             <img id="logo" src="../assets/images/timer_app_logo.svg">
-            <div id="draggable_area">⠿⠿⠿</div>
             <div id="toolbar_buttons">
                 <button id="minimize_to_system_btn"><img id="minimize_to_system"
                         src="../assets/images/minimize_system_tray.svg"></button>
+                &nbsp;
                 <button id="minimize_app_btn"><img id="minimize_app" src="../assets/images/minus_icon.svg"></button>
+                &nbsp;
                 <button id="close_app_btn"><img id="close_app" src="../assets/images/close_icon.svg"></button>
             </div>
         </div>
     </nav>
-    <h1>Timer Settings</h1>
-    <div id="options-container">
-        <div id="timer_type">
-            <p>Timer Type</p>
-            <select>
-                <option>Countdown</option>
-                <option>Stopwatch</option>
-            </select>
-        </div>
-        <div id="set_loop">
-            <p>Loop</p>
-            <select>
-                <option>On</option>
-                <option>Off</option>
-            </select>
-        </div>
-        <div>
-            <div id="settings_container">
-                <div id="set_time">
-                    <div id="hours">
-                        <button id="increase_hour">▲</button>
-                        <div id="hour_field">00</div>
-                        <button id="decrease_hour">▼</button>
-                    </div>
-                    <div class="separator">:</div>
-                    <div id="minutes">
-                        <button id="increase_minute">▲</button>
-                        <div id="minute_field">00</div>
-                        <button id="decrease_minute">▼</button>
-                    </div>
-                    <div class="separator">:</div>
-                    <div id="seconds">
-                        <button id="increase_second">▲</button>
-                        <div id="second_field">00</div>
-                        <button id="decrease_second">▼</button>
-                    </div>
-                </div>
-                <button id="set_time_btn">Set Time</button>
-            </div>
-        </div>
-        <script src="../../dist/renderer/global.js"></script>
-        <script src="../../dist/renderer/settings.js"></script>
+    <div id="draggable_area">⠿⠿⠿</div>
+    <div id="settings_header_container">
+        <h1>Timer Settings</h1>
     </div>
+    <div id="set_time">
+        <div id="hours">
+            <button id="increase_hour">▲</button>
+            <div id="hour_field">00</div>
+            <button id="decrease_hour">▼</button>
+        </div>
+        <div class="separator">:</div>
+        <div id="minutes">
+            <button id="increase_minute">▲</button>
+            <div id="minute_field">00</div>
+            <button id="decrease_minute">▼</button>
+        </div>
+        <div class="separator">:</div>
+        <div id="seconds">
+            <button id="increase_second">▲</button>
+            <div id="second_field">00</div>
+            <button id="decrease_second">▼</button>
+        </div>
+    </div>
+    <div>
+        <button id="set_time_btn">Set Time</button>
+        <button id="set_loop">Loop: On</button>
+    </div>
+    <button id="close_settings">save settings</button>
+    <script src="../../dist/renderer/global.js"></script>
+    <script src="../../dist/renderer/settings.js"></script>
+    <script src="../../dist/renderer/bridge.js"></script>
 </body>
 
 </html>
