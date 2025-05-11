@@ -14,6 +14,7 @@ const createWindow = () => {
         width: 300,
         height: 300,
         autoHideMenuBar: true,
+        frame: false,
         webPreferences: {
             preload: node_path_1.default.join(__dirname, '../../dist/renderer/preload.js'),
         },
@@ -25,7 +26,8 @@ let tray;
 let mainWindow;
 electron_1.app.whenReady().then(() => {
     mainWindow = createWindow();
-    const icon = electron_1.nativeImage.createFromPath("C:\\Users\\andre\\Downloads\\8e4567c03a4ce5fd.png");
+    const imagePath = node_path_1.default.join(__dirname, "../../src/assets/images/timer_app_logo.png");
+    const icon = electron_1.nativeImage.createFromPath(imagePath);
     tray = new electron_1.Tray(icon);
     const contextMenu = electron_1.Menu.buildFromTemplate([
         {

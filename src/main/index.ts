@@ -1,4 +1,4 @@
-import { app, BrowserWindow, Tray, Menu, nativeImage } from 'electron';
+import { app, BrowserWindow, Tray, Menu, nativeImage, ipcMain } from 'electron';
 import path from 'node:path';
 const isSquirrelStartup: boolean = require('electron-squirrel-startup');
 
@@ -13,7 +13,7 @@ const createWindow = (): BrowserWindow => {
         width: 300,
         height: 300,
         autoHideMenuBar: true,
-        // frame: false,
+        frame: false,
         webPreferences: {
             preload: path.join(__dirname, '../../dist/renderer/preload.js'),
         },
@@ -39,8 +39,9 @@ let mainWindow: BrowserWindow;
 app.whenReady().then(() => {
     mainWindow = createWindow();
 
-    // creating a tray here
-    const icon = nativeImage.createFromPath("C:\\Users\\andre\\Downloads\\8e4567c03a4ce5fd.png");
+    type path = string;
+    const imagePath: path = path.join(__dirname, "../../src/assets/images/timer_app_logo.png");
+    const icon = nativeImage.createFromPath(imagePath);
     tray = new Tray(icon);
 
     const contextMenu = Menu.buildFromTemplate([
@@ -77,15 +78,11 @@ app.on('window-all-closed', () => {
     }
 });
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and import them here.
-
-// TODO:
 // opens the miniplayer
-function openMiniplayer(): void {
+ipcMain.handle('openMiniplayer', () => {
     createMiniplayerWindow();
     hideMainWindow();
-}
+});
 
 // creates the miniplayer window
 function createMiniplayerWindow(): BrowserWindow {
@@ -107,3 +104,17 @@ function createMiniplayerWindow(): BrowserWindow {
 function hideMainWindow() {
     mainWindow.hide();
 }
+
+// closes the app
+ipcMain.handle('closeApp', () => {
+    app.quit();
+})
+
+// minimizes the app to tray
+ipcMain.handle('minimizeToSystemTray', () => {
+    app.hide();
+});
+
+ipcMain.handle('minimizeApp', () => {
+    mainWindow.minimize();
+});
