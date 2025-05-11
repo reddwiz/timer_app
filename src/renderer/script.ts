@@ -11,10 +11,6 @@ saved_time = time_seconds;
 const time_display: HTMLDivElement = document.getElementById('time') as HTMLDivElement;
 set_html_time();
 
-console.log(loop);
-console.log(time_seconds);
-console.log(saved_time);
-
 let active: boolean = false;
 let interval_id: NodeJS.Timeout;
 let progress_interval_id: NodeJS.Timeout;
@@ -190,4 +186,10 @@ const minimize_app_btn: HTMLButtonElement = document.getElementById('minimize_ap
 const minimize_to_system_btn: HTMLButtonElement = document.getElementById('minimize_to_system_btn') as HTMLButtonElement;
 close_app_btn.addEventListener('click', () => {
     window.backend.closeApp();
+});
+minimize_app_btn.addEventListener('click', () => {
+    window.backend.minimizeApp();
+});
+minimize_to_system_btn.addEventListener('click', () => {
+    window.backend.minimizeToSystemTray();
 });

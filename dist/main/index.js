@@ -54,10 +54,10 @@ electron_1.app.on('window-all-closed', () => {
         electron_1.app.quit();
     }
 });
-function openMiniplayer() {
+electron_1.ipcMain.on('openMiniplayer', () => {
     createMiniplayerWindow();
     hideMainWindow();
-}
+});
 function createMiniplayerWindow() {
     const miniplayer = new electron_1.BrowserWindow({
         width: 300,
@@ -74,3 +74,12 @@ function createMiniplayerWindow() {
 function hideMainWindow() {
     mainWindow.hide();
 }
+electron_1.ipcMain.on('closeApp', () => {
+    electron_1.app.quit();
+});
+electron_1.ipcMain.on('minimizeToSystemTray', () => {
+    mainWindow.hide();
+});
+electron_1.ipcMain.on('minimizeApp', () => {
+    mainWindow.minimize();
+});

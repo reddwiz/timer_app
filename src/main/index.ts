@@ -79,7 +79,7 @@ app.on('window-all-closed', () => {
 });
 
 // opens the miniplayer
-ipcMain.handle('openMiniplayer', () => {
+ipcMain.on('openMiniplayer', () => {
     createMiniplayerWindow();
     hideMainWindow();
 });
@@ -106,15 +106,15 @@ function hideMainWindow() {
 }
 
 // closes the app
-ipcMain.handle('closeApp', () => {
+ipcMain.on('closeApp', () => {
     app.quit();
 })
 
 // minimizes the app to tray
-ipcMain.handle('minimizeToSystemTray', () => {
-    app.hide();
+ipcMain.on('minimizeToSystemTray', () => {
+    mainWindow.hide();
 });
 
-ipcMain.handle('minimizeApp', () => {
+ipcMain.on('minimizeApp', () => {
     mainWindow.minimize();
 });
