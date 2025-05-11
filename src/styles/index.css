@@ -26,49 +26,6 @@ p {
     margin: 0;
 }
 
-nav {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    /* background-color: rgb(240, 240, 240); */
-}
-
-#toolbar_container {
-    display: flex;
-    justify-content: space-between;
-}
-
-#draggable_area {
-    -webkit-app-region: drag;
-    height: 20px;
-}
-
-nav img {
-    height: 20px;
-    color: red;
-}
-
-img#logo {
-    align-self: center;
-    margin-top: 10px;
-    margin-left: 10px;
-    margin-right: 32.12px;
-    height: 30px;
-    border: 2px solid black;
-    padding-left: 3px;
-    border-radius: 7px;
-}
-
-#toolbar_buttons {
-    margin-right: 5px;
-    margin-top: 5px;
-}
-
-#toolbar_buttons button:hover {
-    transform: scale(1.1, 1.1);
-}
-
 #time {
     font-size: 3em;
 }

@@ -6,9 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Desktop Timer</title>
     <link href="../styles/settings.css" rel="stylesheet">
+    <link href="../styles/nav.css" rel="stylesheet">
 </head>
 
 <body>
+    <nav id="toolbar">
+        <div id="toolbar_container">
+            <img id="logo" src="../assets/images/timer_app_logo.svg">
+            <div id="draggable_area">⠿⠿⠿</div>
+            <div id="toolbar_buttons">
+                <button id="minimize_to_system_btn"><img id="minimize_to_system"
+                        src="../assets/images/minimize_system_tray.svg"></button>
+                <button id="minimize_app_btn"><img id="minimize_app" src="../assets/images/minus_icon.svg"></button>
+                <button id="close_app_btn"><img id="close_app" src="../assets/images/close_icon.svg"></button>
+            </div>
+        </div>
+    </nav>
     <h1>Timer Settings</h1>
     <div id="options-container">
         <div id="timer_type">
