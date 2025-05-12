@@ -19,16 +19,25 @@ body {
     position: relative;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-width: 100vw;
 }
 
 h1 {
     margin-bottom: 15px;
-    margin-top: 40px;
+    margin-top: 45px;
+}
+
+#settings_header_container {
+    display: flex;
+    justify-content: center;
 }
 
 #set_time {
     display: flex;
-    justify-content: right;
+    justify-content: center;
     font-size: 2.4rem;
 }
 
@@ -45,19 +54,40 @@ h1 {
     background-color: lightgrey;
 }
 
-#set_time_btn {
-    align-self: center;
-}
-
 .separator {
     align-self: center;
 }
 
-button#set_time_btn {
+button#set_loop,
+button#close_settings {
     border: 1px solid black;
     background-color: rgb(247, 247, 247);
     border-radius: 6px;
     padding: 5px;
     padding-top: 1px;
+    padding-bottom: 3px;
     /* this is here to fix weird offset */
+}
+
+button#close_settings {
+    padding-top: 5px;
+    background-color: rgb(175, 255, 175);
+    height: 20px;
+}
+
+button#set_loop:hover {
+    background-color: rgb(220, 220, 220);
+}
+
+#option_container {
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#save_settings_container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
 }
