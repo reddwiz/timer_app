@@ -1,9 +1,26 @@
 "use strict";
+const hour_field = document.getElementById('hour_field');
+const minute_field = document.getElementById('minute_field');
+const second_field = document.getElementById('second_field');
+let remaining_time = time_seconds;
+let hours_left;
+let minutes_left;
+let seconds_left;
+hours_left = Math.floor(remaining_time / 3600);
+if (hours_left < 10)
+    hour_field.textContent = `0${hours_left}`;
+remaining_time = remaining_time % 3600;
+minutes_left = Math.floor(remaining_time / 60);
+if (minutes_left < 10)
+    minute_field.textContent = `0${minutes_left}`;
+remaining_time = remaining_time % 60;
+seconds_left = remaining_time;
+if (seconds_left < 10)
+    second_field.textContent = `0${seconds_left}`;
 const loop_button = document.getElementById('set_loop');
 loop_button.addEventListener('click', set_loop);
-if (loop) {
+if (loop)
     loop_button.textContent = "loop: on";
-}
 const close_settings_btn = document.getElementById('close_settings');
 close_settings_btn.addEventListener('click', close_settings);
 const increase_hour_btn = document.getElementById('increase_hour');
@@ -24,9 +41,6 @@ function set_time(time_param) {
     console.log(`time was set to: ${time_param}`);
     console.log(`saved_time was set to ${saved_time}`);
 }
-const hour_field = document.getElementById('hour_field');
-const minute_field = document.getElementById('minute_field');
-const second_field = document.getElementById('second_field');
 function initialize_timer() {
     const hours = Number(hour_field.textContent);
     const minutes = Number(minute_field.textContent);

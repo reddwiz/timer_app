@@ -4,12 +4,29 @@
  *
  */
 
+// set the time of the time fields to the proper html
+const hour_field: HTMLDivElement = document.getElementById('hour_field') as HTMLDivElement;
+const minute_field: HTMLDivElement = document.getElementById('minute_field') as HTMLDivElement;
+const second_field: HTMLDivElement = document.getElementById('second_field') as HTMLDivElement;
+
+let remaining_time: number = time_seconds;
+let hours_left: number;
+let minutes_left: number;
+let seconds_left: number;
+
+hours_left = Math.floor(remaining_time / 3600);
+if (hours_left < 10) hour_field.textContent = `0${hours_left}`;
+remaining_time = remaining_time % 3600;
+minutes_left = Math.floor(remaining_time / 60);
+if (minutes_left < 10) minute_field.textContent = `0${minutes_left}`;
+remaining_time = remaining_time % 60;
+seconds_left = remaining_time;
+if (seconds_left < 10) second_field.textContent = `0${seconds_left}`;
 const loop_button: HTMLButtonElement = document.getElementById('set_loop') as HTMLButtonElement;
 loop_button.addEventListener('click', set_loop);
 
-if (loop) {
+if (loop)
     loop_button.textContent = "loop: on";
-}
 
 const close_settings_btn: HTMLButtonElement = document.getElementById('close_settings') as HTMLButtonElement;
 close_settings_btn.addEventListener('click', close_settings);
@@ -28,7 +45,6 @@ decrease_minute_btn.addEventListener('click', decrease_minute_template);
 increase_second_btn.addEventListener('click', increase_second_template);
 decrease_second_btn.addEventListener('click', decrease_second_template);
 
-// set the time
 function set_time(time_param: number): void {
     time_seconds = time_param;
     saved_time = time_param;
@@ -36,9 +52,6 @@ function set_time(time_param: number): void {
     console.log(`saved_time was set to ${saved_time}`);
 }
 
-const hour_field: HTMLDivElement = document.getElementById('hour_field') as HTMLDivElement;
-const minute_field: HTMLDivElement = document.getElementById('minute_field') as HTMLDivElement;
-const second_field: HTMLDivElement = document.getElementById('second_field') as HTMLDivElement;
 // set the time based on fields
 function initialize_timer(): void {
     const hours: number = Number(hour_field.textContent);
@@ -141,13 +154,11 @@ function decrease_second_template(): void {
     }
 }
 
-// sets the loop
 function set_loop(): void {
     loop = !loop;
     change_loop_text();
 }
 
-// changes loop text to on or off
 function change_loop_text(): void {
     if (loop) {
         loop_button.textContent = "loop: on";
