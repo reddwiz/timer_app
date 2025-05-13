@@ -68,7 +68,7 @@ function createMiniplayerWindow() {
             preload: node_path_1.default.join(__dirname, '../renderer/preload.js'),
         },
     });
-    miniplayer.loadFile(node_path_1.default.join(__dirname, '../html/miniplayer.html'));
+    miniplayer.loadFile(node_path_1.default.join(__dirname, '../../src/html/miniplayer.html'));
     return miniplayer;
 }
 function hideMainWindow() {

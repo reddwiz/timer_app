@@ -111,13 +111,12 @@ function hide_settings(hide) {
         settings_button.classList.remove('hidden');
     }
 }
-const body = document.getElementById('body');
-function dark_mode() {
-    body.classList.toggle('dark');
+function openMiniplayer() {
+    window.backend.openMiniplayer();
 }
 const play_button = document.getElementById('play');
 const settings_button = document.getElementById('settings');
 const miniplayer_btn = document.getElementById('miniplayer');
 play_button.addEventListener('click', play);
 settings_button.addEventListener('click', open_settings);
-miniplayer_btn.addEventListener('click', dark_mode);
+miniplayer_btn.addEventListener('click', openMiniplayer);

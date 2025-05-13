@@ -96,7 +96,7 @@ function createMiniplayerWindow(): BrowserWindow {
         },
     });
 
-    miniplayer.loadFile(path.join(__dirname, '../html/miniplayer.html'));
+    miniplayer.loadFile(path.join(__dirname, '../../src/html/miniplayer.html'));
 
     return miniplayer;
 }

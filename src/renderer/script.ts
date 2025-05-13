@@ -135,21 +135,16 @@ function calculate_progress(): number {
     return 100 * (time_seconds / saved_time);
 }
 
-
 function set_text_play(): void {
-    // sets the pause btn to play
     play_button.textContent = "play";
 }
 
 function set_text_pause(): void {
-    // sets the play btn to pause
     play_button.textContent = "pause";
 }
 
 // opens the settings html
-// TODO:
 function open_settings(): void {
-    // settings_div.classList.remove('hidden');
     window.location.href = "../html/settings.html";
 }
 
@@ -163,10 +158,8 @@ function hide_settings(hide: boolean): void {
 }
 
 // TODO:
-const body: HTMLDivElement = document.getElementById('body') as HTMLDivElement;
-// enables dark mode on button press
-function dark_mode(): void {
-    body.classList.toggle('dark');
+function openMiniplayer(): void {
+    window.backend.openMiniplayer();
 }
 
 // misc vars and event listeners
@@ -175,5 +168,4 @@ const settings_button: HTMLButtonElement = document.getElementById('settings') a
 const miniplayer_btn: HTMLButtonElement = document.getElementById('miniplayer') as HTMLButtonElement;
 play_button.addEventListener('click', play);
 settings_button.addEventListener('click', open_settings);
-// dark mode for now as a prototype
-miniplayer_btn.addEventListener('click', dark_mode);
+miniplayer_btn.addEventListener('click', openMiniplayer);
