@@ -1,6 +1,4 @@
 "use strict";
-loop = window.localStorage.getItem("loop") === "true";
-time_seconds = parseInt(window.localStorage.getItem("time") || "0");
 saved_time = time_seconds;
 const time_display = document.getElementById('time');
 set_html_time();

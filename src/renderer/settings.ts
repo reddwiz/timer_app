@@ -4,13 +4,15 @@
  *
  */
 
-const close_settings_btn: HTMLButtonElement = document.getElementById('close_settings') as HTMLButtonElement;
-// TODO: adding back later
-close_settings_btn.addEventListener('click', close_settings);
+const loop_button: HTMLButtonElement = document.getElementById('set_loop') as HTMLButtonElement;
+loop_button.addEventListener('click', set_loop);
 
-const loop_button: HTMLButtonElement = document.getElementById('loop') as HTMLButtonElement;
-// TODO: need to add this back, temp disabling it
-// loop_button.addEventListener('click', set_loop);
+if (loop) {
+    loop_button.textContent = "loop: on";
+}
+
+const close_settings_btn: HTMLButtonElement = document.getElementById('close_settings') as HTMLButtonElement;
+close_settings_btn.addEventListener('click', close_settings);
 
 // variables and event listeners for the setting timer buttons
 const increase_hour_btn: HTMLButtonElement = document.getElementById('increase_hour') as HTMLButtonElement;
@@ -51,11 +53,6 @@ function close_settings(): void {
     initialize_timer();
     setLocalStorageValues();
     window.location.href = "../html/index.html";
-}
-
-function setLocalStorageValues(): void {
-    window.localStorage.setItem("time", `${time_seconds}`);
-    window.localStorage.setItem("loop", `${loop}`);
 }
 
 // increases the number of hours on the setting template
@@ -150,8 +147,6 @@ function set_loop(): void {
     change_loop_text();
 }
 
-// TODO:
-// need to repurpose this after settings and css changes
 // changes loop text to on or off
 function change_loop_text(): void {
     if (loop) {

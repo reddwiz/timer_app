@@ -4,8 +4,6 @@
  *
  */
 
-loop = window.localStorage.getItem("loop") === "true";
-time_seconds = parseInt(window.localStorage.getItem("time") || "0");
 saved_time = time_seconds;
 
 const time_display: HTMLDivElement = document.getElementById('time') as HTMLDivElement;

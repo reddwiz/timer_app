@@ -1,7 +1,11 @@
 "use strict";
+const loop_button = document.getElementById('set_loop');
+loop_button.addEventListener('click', set_loop);
+if (loop) {
+    loop_button.textContent = "loop: on";
+}
 const close_settings_btn = document.getElementById('close_settings');
 close_settings_btn.addEventListener('click', close_settings);
-const loop_button = document.getElementById('loop');
 const increase_hour_btn = document.getElementById('increase_hour');
 const decrease_hour_btn = document.getElementById('decrease_hour');
 const increase_minute_btn = document.getElementById('increase_minute');
@@ -34,10 +38,6 @@ function close_settings() {
     initialize_timer();
     setLocalStorageValues();
     window.location.href = "../html/index.html";
-}
-function setLocalStorageValues() {
-    window.localStorage.setItem("time", `${time_seconds}`);
-    window.localStorage.setItem("loop", `${loop}`);
 }
 function increase_hour_template() {
     const hour_time = Number(hour_field.textContent);
