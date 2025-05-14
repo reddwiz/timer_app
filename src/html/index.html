@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none';">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Desktop Timer</title>
     <link rel="stylesheet" href="../styles/index.css">
@@ -14,12 +15,14 @@
         <div id="toolbar_container">
             <img id="logo" src="../assets/images/timer_app_logo.svg">
             <div id="toolbar_buttons">
-                <button id="minimize_to_system_btn"><img id="minimize_to_system"
+                <button title="minimize to tray" id="minimize_to_system_btn"><img id="minimize_to_system"
                         src="../assets/images/minimize_system_tray.svg"></button>
                 &nbsp;
-                <button id="minimize_app_btn"><img id="minimize_app" src="../assets/images/minus_icon.svg"></button>
+                <button title="minimize to taskbar" id="minimize_app_btn"><img id="minimize_app"
+                        src="../assets/images/minus_icon.svg"></button>
                 &nbsp;
-                <button id="close_app_btn"><img id="close_app" src="../assets/images/close_icon.svg"></button>
+                <button title="close application" id="close_app_btn"><img id="close_app"
+                        src="../assets/images/close_icon.svg"></button>
             </div>
         </div>
     </nav>
@@ -30,8 +33,9 @@
             <div id="progress"></div>
         </div>
         <div id="actions">
-            <button id="play"><img id="play_img" src="../assets/images/play.svg"></button>
-            <button title="open settings" id="settings">settings</button>
+            <button title="play/pause" id="play"><img id="play_img" src="../assets/images/play.svg"></button>
+            <button title="open settings" id="settings"><img id="settings_img"
+                    src="../assets/images/settings_icon.svg"></button>
         </div>
     </div>
     <button id="miniplayer">

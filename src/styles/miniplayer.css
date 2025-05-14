@@ -57,8 +57,8 @@ p#time {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-left: 3px;
-    gap: 8px;
+    margin-left: 6px;
+    /* gap: 8px; */
 }
 
 #play {

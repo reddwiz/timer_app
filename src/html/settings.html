@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self'; object-src 'none';">
     <meta name="viewport" content="width=device-width, initial-scale=0.9">
     <title>Desktop Timer</title>
     <link href="../styles/settings.css" rel="stylesheet">
@@ -14,12 +15,14 @@
         <div id="toolbar_container">
             <img id="logo" src="../assets/images/timer_app_logo.svg">
             <div id="toolbar_buttons">
-                <button id="minimize_to_system_btn"><img id="minimize_to_system"
+                <button title="minimize to tray" id="minimize_to_system_btn"><img id="minimize_to_system"
                         src="../assets/images/minimize_system_tray.svg"></button>
                 &nbsp;
-                <button id="minimize_app_btn"><img id="minimize_app" src="../assets/images/minus_icon.svg"></button>
+                <button title="minimize to taskbar" id="minimize_app_btn"><img id="minimize_app"
+                        src="../assets/images/minus_icon.svg"></button>
                 &nbsp;
-                <button id="close_app_btn"><img id="close_app" src="../assets/images/close_icon.svg"></button>
+                <button title="close application" id="close_app_btn"><img id="close_app"
+                        src="../assets/images/close_icon.svg"></button>
             </div>
         </div>
     </nav>
@@ -47,8 +50,8 @@
         </div>
     </div>
     <div id="option_container">
-        <button id="set_loop">loop: off</button>
-        <button id="close_settings"><img src="../assets/images/save_icon_settings.svg"></button>
+        <button title="set loop" id="set_loop">loop: off</button>
+        <button title="save settings" id="close_settings"><img src="../assets/images/save_icon_settings.svg"></button>
     </div>
     <script src="../../dist/renderer/global.js"></script>
     <script src="../../dist/renderer/local_storage.js"></script>

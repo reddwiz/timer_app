@@ -77,9 +77,10 @@ ipcMain.on('closeMiniplayer', () => {
 
 function createMiniplayerWindow(): BrowserWindow {
     miniplayerWindow = new BrowserWindow({
-        width: 192,
+        width: 188,
         height: 54,
         autoHideMenuBar: true,
+        alwaysOnTop: true,
         frame: false,
         resizable: false,
         webPreferences: {
