@@ -1,5 +1,5 @@
 # First Pre-Release
-* The app is available for pre-release in the [Releases](https://github.com/rredwiz/timer_app/releases) section of this repository. It includes all of the below-mentioned features, and it is a work-in-progress.
+* The app is available for pre-release in the [Releases](https://github.com/rredwiz/timer_app/releases) section of this repository for Windows. It includes all of the below-mentioned features, and it is a work-in-progress.
   
 ![miniplayer example](https://cdn.discordapp.com/attachments/1279629058149191794/1372293175410032874/image.png?ex=68263f1c&is=6824ed9c&hm=bc5b353180136ad7955a396b638e29b0a8c1c3beac8afcd5362367f37b7fc16e&)
   
