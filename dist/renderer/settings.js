@@ -38,14 +38,11 @@ decrease_second_btn.addEventListener('click', decrease_second_template);
 function set_time(time_param) {
     time_seconds = time_param;
     saved_time = time_param;
-    console.log(`time was set to: ${time_param}`);
-    console.log(`saved_time was set to ${saved_time}`);
 }
 function initialize_timer() {
     const hours = Number(hour_field.textContent);
     const minutes = Number(minute_field.textContent);
     const seconds = Number(second_field.textContent);
-    console.log('setting timer');
     set_time(hours * 3600 + minutes * 60 + seconds);
 }
 function close_settings() {

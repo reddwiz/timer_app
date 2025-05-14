@@ -48,8 +48,6 @@ decrease_second_btn.addEventListener('click', decrease_second_template);
 function set_time(time_param: number): void {
     time_seconds = time_param;
     saved_time = time_param;
-    console.log(`time was set to: ${time_param}`);
-    console.log(`saved_time was set to ${saved_time}`);
 }
 
 // set the time based on fields
@@ -57,7 +55,6 @@ function initialize_timer(): void {
     const hours: number = Number(hour_field.textContent);
     const minutes: number = Number(minute_field.textContent);
     const seconds: number = Number(second_field.textContent);
-    console.log('setting timer');
     set_time(hours * 3600 + minutes * 60 + seconds);
 }
 

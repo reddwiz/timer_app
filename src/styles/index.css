@@ -88,6 +88,15 @@ button {
     padding-top: 1px;
 }
 
+#play {
+    display: flex;
+    align-items: center;
+}
+
+#play img {
+    height: 10px;
+}
+
 #play:hover,
 #settings:hover,
 #miniplayer:hover,

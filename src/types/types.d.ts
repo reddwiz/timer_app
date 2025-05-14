@@ -7,6 +7,7 @@ declare global {
             minimizeApp: () => void;
             closeApp: () => void;
             openMiniplayer: () => void;
+            closeMiniplayer: () => void;
         }
     }
 }

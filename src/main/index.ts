@@ -35,6 +35,7 @@ const createWindow = (): BrowserWindow => {
 
 let tray: Tray;
 let mainWindow: BrowserWindow;
+let miniplayerWindow: BrowserWindow;
 
 app.whenReady().then(() => {
     mainWindow = createWindow();
@@ -80,29 +81,43 @@ app.on('window-all-closed', () => {
 
 // opens the miniplayer
 ipcMain.on('openMiniplayer', () => {
-    createMiniplayerWindow();
     hideMainWindow();
+    createMiniplayerWindow();
+});
+
+ipcMain.on('closeMiniplayer', () => {
+    destroyMiniplayerWindow();
+    showMainWindow();
 });
 
 // creates the miniplayer window
 function createMiniplayerWindow(): BrowserWindow {
-    const miniplayer: BrowserWindow = new BrowserWindow({
-        width: 300,
-        height: 300,
+    miniplayerWindow = new BrowserWindow({
+        width: 192,
+        height: 54,
         autoHideMenuBar: true,
         frame: false,
+        resizable: false,
         webPreferences: {
             preload: path.join(__dirname, '../renderer/preload.js'),
         },
     });
 
-    miniplayer.loadFile(path.join(__dirname, '../../src/html/miniplayer.html'));
+    miniplayerWindow.loadFile(path.join(__dirname, '../../src/html/miniplayer.html'));
 
-    return miniplayer;
+    return miniplayerWindow;
+}
+
+function destroyMiniplayerWindow() {
+    miniplayerWindow.close();
 }
 
 function hideMainWindow() {
     mainWindow.hide();
+}
+
+function showMainWindow() {
+    mainWindow.show();
 }
 
 // closes the app

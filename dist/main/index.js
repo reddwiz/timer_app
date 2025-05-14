@@ -24,6 +24,7 @@ const createWindow = () => {
 };
 let tray;
 let mainWindow;
+let miniplayerWindow;
 electron_1.app.whenReady().then(() => {
     mainWindow = createWindow();
     const imagePath = node_path_1.default.join(__dirname, "../../src/assets/images/timer_app_logo.png");
@@ -55,24 +56,35 @@ electron_1.app.on('window-all-closed', () => {
     }
 });
 electron_1.ipcMain.on('openMiniplayer', () => {
-    createMiniplayerWindow();
     hideMainWindow();
+    createMiniplayerWindow();
+});
+electron_1.ipcMain.on('closeMiniplayer', () => {
+    destroyMiniplayerWindow();
+    showMainWindow();
 });
 function createMiniplayerWindow() {
-    const miniplayer = new electron_1.BrowserWindow({
-        width: 300,
-        height: 300,
+    miniplayerWindow = new electron_1.BrowserWindow({
+        width: 192,
+        height: 54,
         autoHideMenuBar: true,
         frame: false,
+        resizable: false,
         webPreferences: {
             preload: node_path_1.default.join(__dirname, '../renderer/preload.js'),
         },
     });
-    miniplayer.loadFile(node_path_1.default.join(__dirname, '../../src/html/miniplayer.html'));
-    return miniplayer;
+    miniplayerWindow.loadFile(node_path_1.default.join(__dirname, '../../src/html/miniplayer.html'));
+    return miniplayerWindow;
+}
+function destroyMiniplayerWindow() {
+    miniplayerWindow.close();
 }
 function hideMainWindow() {
     mainWindow.hide();
+}
+function showMainWindow() {
+    mainWindow.show();
 }
 electron_1.ipcMain.on('closeApp', () => {
     electron_1.app.quit();

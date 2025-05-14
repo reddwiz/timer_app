@@ -9,7 +9,18 @@
 </head>
 
 <body>
-    miniplayer
+    <div id="tools_container">
+        <button id="close_miniplayer"><img src="../assets/images/close_icon.svg"></button>
+        <div id="drag">⠿</div>
+    </div>
+    <div id="content_container">
+        <p id="time">00:00:00</p>
+        <button id="play"><img id="play_img" src="../assets/images/play.svg"></button>
+    </div>
+    <script src="../../dist/renderer/global.js"></script>
+    <script src="../../dist/renderer/local_storage.js"></script>
+    <script src="../../dist/renderer/countdown.js"></script>
+    <script src="../../dist/renderer/miniplayer.js"></script>
 </body>
 
 </html>
