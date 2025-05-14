@@ -1,10 +1,3 @@
-/* 
- *
- *  settings script
- *
- */
-
-// set the time of the time fields to the proper html
 const hour_field: HTMLDivElement = document.getElementById('hour_field') as HTMLDivElement;
 const minute_field: HTMLDivElement = document.getElementById('minute_field') as HTMLDivElement;
 const second_field: HTMLDivElement = document.getElementById('second_field') as HTMLDivElement;
@@ -31,7 +24,6 @@ if (loop)
 const close_settings_btn: HTMLButtonElement = document.getElementById('close_settings') as HTMLButtonElement;
 close_settings_btn.addEventListener('click', close_settings);
 
-// variables and event listeners for the setting timer buttons
 const increase_hour_btn: HTMLButtonElement = document.getElementById('increase_hour') as HTMLButtonElement;
 const decrease_hour_btn: HTMLButtonElement = document.getElementById('decrease_hour') as HTMLButtonElement;
 const increase_minute_btn: HTMLButtonElement = document.getElementById('increase_minute') as HTMLButtonElement;
@@ -50,7 +42,6 @@ function set_time(time_param: number): void {
     saved_time = time_param;
 }
 
-// set the time based on fields
 function initialize_timer(): void {
     const hours: number = Number(hour_field.textContent);
     const minutes: number = Number(minute_field.textContent);
@@ -58,14 +49,15 @@ function initialize_timer(): void {
     set_time(hours * 3600 + minutes * 60 + seconds);
 }
 
-// opens main html
 function close_settings(): void {
     initialize_timer();
     setLocalStorageValues();
     window.location.href = "../html/index.html";
 }
 
-// increases the number of hours on the setting template
+// these functions are for each of the buttons on the
+// settings feature to set the time by clicking up or down
+// on each denomination of time (hours, minutes, seconds)
 function increase_hour_template(): void {
     const hour_time: number = Number(hour_field.textContent);
     if (hour_time < 99) {
@@ -79,12 +71,9 @@ function increase_hour_template(): void {
     }
 }
 
-// decreases the number of hours on the setting template
 function decrease_hour_template(): void {
-    // decrease the hour setting
     const hour_time: number = Number(hour_field.textContent);
     if (hour_time != 0) {
-        // set the time
         if (hour_time < 11) {
             hour_field.textContent = `0${hour_time - 1}`;
         } else {
@@ -95,7 +84,6 @@ function decrease_hour_template(): void {
     }
 }
 
-// increases the number of minute on the settings template
 function increase_minute_template(): void {
     const minute_time: number = Number(minute_field.textContent);
     if (minute_time < 59) {
@@ -109,7 +97,6 @@ function increase_minute_template(): void {
     }
 }
 
-// decreases the number of minutes on the settings template
 function decrease_minute_template(): void {
     const minute_time: number = Number(minute_field.textContent);
     if (minute_time != 0) {
@@ -123,7 +110,6 @@ function decrease_minute_template(): void {
     }
 }
 
-// increases the number of seconds on the settings template
 function increase_second_template(): void {
     const second_time: number = Number(second_field.textContent);
     if (second_time < 59) {
@@ -137,7 +123,6 @@ function increase_second_template(): void {
     }
 }
 
-// decreases the number of seconds on the settings template
 function decrease_second_template(): void {
     const second_time: number = Number(second_field.textContent);
     if (second_time != 0) {

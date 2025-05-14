@@ -10,31 +10,24 @@ saved_time = time_seconds;
 const time_display: HTMLDivElement = document.getElementById('time') as HTMLDivElement;
 set_html_time();
 
-// countdown logic
 const countdown = (): void => {
-    // timer ends then executes
     if (time_seconds < 1) {
         countdown_over();
         return;
     }
 
-    // regular interval logic
     time_seconds--;
     set_html_time();
-    // returns the filename (last pos in split array)
     if (file_name === 'index.html')
         progress_updater();
 };
 
-// when countdown finishes, executes this logic
 const countdown_over = (): void => {
     end_timer();
     play_sound();
 };
 
-// decide start or stop logic
 function play(): void {
-    // play the timer
     if (!active) {
         start_timer();
     } else {
@@ -42,7 +35,6 @@ function play(): void {
     }
 }
 
-// start timer logic
 function start_timer(): void {
     // ensures that new plays will contain the proper time
     if (time_seconds === 0) time_seconds = saved_time;
@@ -51,14 +43,12 @@ function start_timer(): void {
     set_text_pause();
 }
 
-// pauses the countdown
 function pause_timer(): void {
     clear_interval();
     set_active(false);
     set_text_play();
 }
 
-// ends the timer if loop is not true
 function end_timer(): void {
     if (!loop) {
         clear_interval();
@@ -69,21 +59,16 @@ function end_timer(): void {
     }
 }
 
-// sets timer activity
-// (basically tells us if the timer is ticking down)
 function set_active(boolean: boolean): void {
     active = boolean;
     if (file_name === 'index.html')
-        hide_settings(boolean); // hides settings button
+        hide_settings(boolean);
 }
 
-// starts the countdown and sets the interval id
-// we need the interval id so we can stop the interval later
 function start_countdown(): void {
     interval_id = setInterval(countdown, 1000);
 }
 
-// stops the recurring countdown function
 function clear_interval(): void {
     clearInterval(interval_id);
 }
@@ -95,10 +80,8 @@ function set_html_time(): void {
 
 // converts the seconds to a formatted string
 function convert_time(remaining_time: number): string {
-    // saving an instance of time locally
     remaining_time = time_seconds;
 
-    // create 3 local variables to display each denomination
     let hour_text;
     let minute_text;
     let second_text;
@@ -117,11 +100,9 @@ function convert_time(remaining_time: number): string {
 }
 
 function set_text_play(): void {
-    // play_button.textContent = "play";
     play_img.src = '../../src/assets/images/play.svg';
 }
 
 function set_text_pause(): void {
-    // play_button.textContent = "pause";
     play_img.src = '../../src/assets/images/pause.svg';
 }

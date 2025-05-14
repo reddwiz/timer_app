@@ -1,5 +1,3 @@
-// type declaration file to declare globals
-
 declare global {
     interface Window {
         backend: {
