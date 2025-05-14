@@ -1,6 +1,8 @@
 # First Pre-Release
 * The app is available for pre-release in the releases section. It includes all of the below-mentioned features, and it is a work-in-progress.
-
+  
+![miniplayer example](https://cdn.discordapp.com/attachments/1279629058149191794/1372293175410032874/image.png?ex=68263f1c&is=6824ed9c&hm=bc5b353180136ad7955a396b638e29b0a8c1c3beac8afcd5362367f37b7fc16e&)
+  
 # Simple Timer App
 
 This is a simple app that lets you create a configurable desktop timer to suit your needs. 
